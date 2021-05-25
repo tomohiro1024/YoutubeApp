@@ -9,8 +9,18 @@ import UIKit
 
 class VideoListCell: UICollectionViewCell {
     
-    var videoItem: Item {
+    var videoItem: Item? {
         didSet {
+            
+            if let url = URL(string: videoItem?.snippet.thumbnails.medium.url ?? "") {
+                
+                let data = try! Data(contentsOf: url)
+                thumbnailImageView.image = UIImage(data: data)
+                
+            }
+            
+            titleLabel.text = videoItem?.snippet.title
+            discriptionLabel.text = videoItem?.snippet.description
             
         }
     }
