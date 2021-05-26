@@ -7,5 +7,6 @@ target 'YoutubeApp' do
 
   # Pods for YoutubeApp
   pod 'Alamofire', '~> 5.2'
+  pod 'Nuke'
 
 end
