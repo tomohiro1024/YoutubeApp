@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class VideoListCell: UICollectionViewCell {
     
@@ -14,8 +15,7 @@ class VideoListCell: UICollectionViewCell {
             
             if let url = URL(string: videoItem?.snippet.thumbnails.medium.url ?? "") {
                 
-                let data = try! Data(contentsOf: url)
-                thumbnailImageView.image = UIImage(data: data)
+                Nuke.loadImage(with: url, into: thumbnailImageView)
                 
             }
             
